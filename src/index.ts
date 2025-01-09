@@ -13,7 +13,7 @@ const auth_service_proxy = createProxyMiddleware({
 });
 
 
-app.use('/auth', auth_service_proxy);
+app.use('/api/v1/auth', auth_service_proxy);
 
 app.get('/', (req : Request, res : Response) => {
     res.send('Hello world from burmese chit chat api gateway');
