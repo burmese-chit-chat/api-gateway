@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import { auth_service_proxy, user_service_proxy } from "./services/auth_service";
 require("dotenv").config();
 
-const PORT: Readonly<number> = 3000;
+const PORT: Readonly<number> = 8000;
 const app = express();
 
 
