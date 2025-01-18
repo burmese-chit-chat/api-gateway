@@ -1,9 +1,15 @@
 import express, { Request, Response } from "express";
 import { auth_service_proxy, user_service_proxy } from "./services/auth_service";
+import cors from "cors";
 require("dotenv").config();
 
 const PORT: Readonly<number> = 8000;
 const app = express();
+app.use(cors({
+    origin: process.env.CLIENT_URL, 
+    credentials: true
+}));
+// app.use(express.json());
 
 
 app.use("/api/v1/auth", auth_service_proxy);
