@@ -4,6 +4,7 @@ import cors from "cors";
 import { browse_service_proxy } from "./services/browse_service";
 import cron from "node-cron";
 import keep_alive from "./helpers/keep_alive";
+import { chat_service_proxy } from "./services/chat_service";
 require("dotenv").config();
 
 cron.schedule("*/2 * * * *", keep_alive);
@@ -21,6 +22,7 @@ app.use(
 app.use("/api/v1/auth", auth_service_proxy);
 app.use("/api/v1/users", user_service_proxy);
 app.use("/api/v1/browse", browse_service_proxy);
+app.use("/api/v1/chat", chat_service_proxy);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello world from burmese chit chat api gateway");
